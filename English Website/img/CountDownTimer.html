@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div class="Launch Time" style="display: flex;">
+            <div style="flex-basis: 100px;">
+                <p id="days">00</p>
+                <span>Days</span>
+                <p id="hours">00</p>
+                <span>Hours</span>
+                <p id="minutes">00</p>
+                <span>Minutes</span>
+                <p id="seconds">00</p>
+                <span>Seconds</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        var countDownDate = new Date("Oct 16, 2025 00:00:00").getTime();
+        var x = setInterval(function(){
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days
+            document.getElementById("hours").innerHTML = hours
+            document.getElementById("minutes").innerHTML = minutes
+            document.getElementById("seconds").innerHTML = seconds
+        },1000)
+    </script>
+</body>
+</html>
